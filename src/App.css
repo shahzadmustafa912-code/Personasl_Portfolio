@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import "tailwindcss";    
+
+*{
+    font-family: Saira, sans-serif;
+}
+
+@theme {
+    --color-dark-100:#1a1a1a;
+    --color-dark-200:#1f1f1f;
+    --color-dark-300:#2d2d2d;
+    --color-dark-400:#3d3d3d;
+    --color-purple:#8B5CF6;
+    --color-pink:#EC4899;
+    --color-blue:#3B82F6;
+}
+
+.nav-link:focus-visible,
+.nav-link:active {
+    color: #8B5CF6;
+}
+
+@media (min-width: 1024px) and (hover: hover) and (pointer: fine) {
+    .nav-link::after {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        background: #8B5CF6;
+        content: "";
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 200ms ease;
+    }
+
+    .nav-link:hover {
+        color: #8B5CF6;
+    }
+
+    .nav-link:hover::after {
+        transform: scaleX(1);
+    }
+}
+
+.typewriter{
+    display: block;
+    margin-inline: 0;
+    overflow: hidden;
+    border-right: 0.12em solid #8B5CF6;
+    white-space: nowrap;
+    width: 20ch;
+    max-width: 0;
+    animation: typing 2.5s steps(20, end) forwards, blink-caret 0.75s steps(1, end) 2.5s infinite;
+}
+
+
+@keyframes typing {
+    from { max-width: 0; }
+    to { max-width: 20ch; }
+}
+
+
+
+@keyframes blink-caret {
+    from, to { border-color: transparent;}
+    50%   { border-color: #8B5CF6;}
+}
+
+.pointer-ball {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 24px;
+    height: 24px;
+    border-radius: 9999px;
+    background: #8B5CF6;
+    pointer-events: none;
+    transform: translate3d(-100px, -100px, 0);
+    margin: -12px 0 0 -12px;
+    transition: transform 80ms ease-out;
+}
+
+@media (hover: none), (pointer: coarse) {
+    .pointer-ball {
+        display: none;
+    }
+}
